@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>React Basico</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!--Importando a library do react e react DOM na versão do desenvolvedro-->
+    <!--Utilização do babel para comprilaão do JSX-->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const root =document.getElementById('root')
+        const introducao = 'Introdução ao react com JSX'
+        ReactDOM.render(<h1> {introducao} </h1>, root)
+    </script>
+</body>
+
+</html>
