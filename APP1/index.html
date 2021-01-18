@@ -18,21 +18,36 @@
     <script type="text/babel">
         const root = document.getElementById('root')
 
-        function MeuComponenteA(props){
+        /*
+        function CompA(props){
             return(
-                <h1>{props.texto}</h1>
+                <div>{props.nome}</div>
             )
         }
 
-        class MeuComponenteB extends React.Component{
+        function App(){
+            return(
+                <div>
+                    <CompA nome='Ana' />
+                    <CompA nome='Marcos' />
+                    <CompA nome='José' />
+                    <CompA nome='Carla' />
+                </div>
+            )
+        }
+        */
+
+        class Somar extends React.Component{
             render(){
                 return(
-                    <div>{this.props.texto}</div>
+                    <div>
+                        <p>O resultado de {this.props.v1} + {this.props.v2} é: {this.props.v1 + this.props.v2}</p>
+                    </div>
                 )
             }
         }
 
-        ReactDOM.render(<MeuComponenteB texto ='Passando propriedades para o componente'></MeuComponenteB>, root)
+        ReactDOM.render(<Somar v1 = {5} v2 ={5} />, root)
     </script>
 </body>
 
