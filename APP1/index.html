@@ -16,38 +16,23 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
+        const root = document.getElementById('root')
 
-        class CompA extends React.Component{
-            render(){
-                return(                    
-                    <h1>Class Component</h1>
-                )
-            }
+        function MeuComponenteA(props){
+            return(
+                <h1>{props.texto}</h1>
+            )
         }
 
-        class CompB extends React.Component{
+        class MeuComponenteB extends React.Component{
             render(){
-                const apresentacao = 'Introducao a Class Component'
                 return(
-                    <p>{apresentacao}</p>
-                )
-            }
-        }
-        
-        class MeuComponente extends React.Component{
-            // Funcao principal render
-            render(){
-                return( 
-                    <div>
-                        <CompA />
-                        <CompB />
-                    </div>
+                    <div>{this.props.texto}</div>
                 )
             }
         }
 
-        const root =document.getElementById('root')
-        ReactDOM.render(<MeuComponente></MeuComponente>, root)
+        ReactDOM.render(<MeuComponenteB texto ='Passando propriedades para o componente'></MeuComponenteB>, root)
     </script>
 </body>
 
