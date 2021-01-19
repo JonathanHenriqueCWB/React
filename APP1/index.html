@@ -4,6 +4,18 @@
 <head>
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        .grenn{
+            background-color: teal;
+            color: thistle;
+            padding: 10px;
+        }
+        .red{
+            background-color: tomato;
+            color: wheat;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,36 +30,37 @@
     <script type="text/babel">
         const root = document.getElementById('root')
 
-        /*
-        function CompA(props){
-            return(
-                <div>{props.nome}</div>
-            )
-        }
-
-        function App(){
-            return(
-                <div>
-                    <CompA nome='Ana' />
-                    <CompA nome='Marcos' />
-                    <CompA nome='José' />
-                    <CompA nome='Carla' />
-                </div>
-            )
-        }
-        */
-
-        class Somar extends React.Component{
-            render(){
-                return(
+        // Class Component
+        class MeuComponente extends React.Component {
+            render() {
+                return (
                     <div>
-                        <p>O resultado de {this.props.v1} + {this.props.v2} é: {this.props.v1 + this.props.v2}</p>
+                        <CompA />
+                        <CompB texto='Componente B, passando texto pela props'/>
                     </div>
                 )
             }
         }
 
-        ReactDOM.render(<Somar v1 = {5} v2 ={5} />, root)
+        // Function Component
+        function CompA() {
+            return (
+                <div className='red'>
+                    <p>Esse testo está no componente A</p>
+                </div>
+            )
+        }
+
+        // Function Component
+        function CompB(props) {
+            return (
+                <div className='grenn'>
+                    <p>{props.texto}</p>
+                </div>
+            )
+        }
+
+        ReactDOM.render(<MeuComponente />, root)
     </script>
 </body>
 
