@@ -5,12 +5,13 @@
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <style>
-        .grenn{
+        .grenn {
             background-color: teal;
             color: thistle;
             padding: 10px;
         }
-        .red{
+
+        .red {
             background-color: tomato;
             color: wheat;
             padding: 10px;
@@ -28,39 +29,19 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
-        const root = document.getElementById('root')
 
-        // Class Component
-        class MeuComponente extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <CompA />
-                        <CompB texto='Componente B, passando texto pela props'/>
-                    </div>
-                )
-            }
-        }
-
-        // Function Component
-        function CompA() {
-            return (
-                <div className='red'>
-                    <p>Esse testo está no componente A</p>
+        function Tempo() {
+            // jsx a apresentar
+            const conteudo = (
+                <div>
+                    <h3>Tempo atual</h3>
+                    <p>hora: {new Date().toLocaleTimeString()}</p>
                 </div>
             )
+            ReactDOM.render(conteudo, document.getElementById('root'))
         }
-
-        // Function Component
-        function CompB(props) {
-            return (
-                <div className='grenn'>
-                    <p>{props.texto}</p>
-                </div>
-            )
-        }
-
-        ReactDOM.render(<MeuComponente />, root)
+        setInterval(Tempo, 1000)
+        
     </script>
 </body>
 
