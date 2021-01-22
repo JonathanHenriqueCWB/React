@@ -4,19 +4,6 @@
 <head>
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <style>
-        .grenn {
-            background-color: teal;
-            color: thistle;
-            padding: 10px;
-        }
-
-        .red {
-            background-color: tomato;
-            color: wheat;
-            padding: 10px;
-        }
-    </style>
 </head>
 
 <body>
@@ -30,18 +17,41 @@
 
     <script type="text/babel">
 
-        function Tempo() {
-            // jsx a apresentar
-            const conteudo = (
-                <div>
-                    <h3>Tempo atual</h3>
-                    <p>hora: {new Date().toLocaleTimeString()}</p>
+        /*
+            Para poder ser passado CSS inline em JSX e preciso passar 
+            as informações como objetos (chave e valor {nome: 'Mario'}), o objeto deve ser interpolado
+            ao código assim como qualquer attributo passa entre tags
+
+            tbm e possivel passar os estilo como uma constante
+        */
+
+        const estilo = { color: 'red', backgroundColor: 'yellow', padding: '20px' }
+
+        class Main extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <CompA />
+                        <CompB />
+                    </div>
+                )
+            }
+        }
+        function CompA() {
+            return (
+                <div style={ {color: 'white', backgroundColor: 'Black', padding: '20px'} }>
+                    <p>Estilo CSS inline</p>
                 </div>
             )
-            ReactDOM.render(conteudo, document.getElementById('root'))
         }
-        setInterval(Tempo, 1000)
-        
+        function CompB() {
+            return (
+                <div style={estilo}>
+                    <p>Estilo CSS inline</p>
+                </div>
+            )
+        }
+        ReactDOM.render(<Main />, document.getElementById('root'))
     </script>
 </body>
 
