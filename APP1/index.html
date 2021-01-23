@@ -16,42 +16,27 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
+        class Main extends React.Component{
 
-        /*
-            Para poder ser passado CSS inline em JSX e preciso passar 
-            as informações como objetos (chave e valor {nome: 'Mario'}), o objeto deve ser interpolado
-            ao código assim como qualquer attributo passa entre tags
+            // Construtor deverá herdar da super classe (React.Component)
+            constructor(){
+                super()
+                this.state = {
+                    nome: 'Joao',
+                    idade: 37
+                }
+            }
 
-            tbm e possivel passar os estilo como uma constante
-        */
-
-        const estilo = { color: 'red', backgroundColor: 'yellow', padding: '20px' }
-
-        class Main extends React.Component {
-            render() {
-                return (
+            render(){
+                return(
                     <div>
-                        <CompA />
-                        <CompB />
+                        <p>Nome: {this.state.nome} {this.props.sobrenome}</p>
+                        <p>Idade: {this.state.idade}</p>
                     </div>
                 )
             }
         }
-        function CompA() {
-            return (
-                <div style={ {color: 'white', backgroundColor: 'Black', padding: '20px'} }>
-                    <p>Estilo CSS inline</p>
-                </div>
-            )
-        }
-        function CompB() {
-            return (
-                <div style={estilo}>
-                    <p>Estilo CSS inline</p>
-                </div>
-            )
-        }
-        ReactDOM.render(<Main />, document.getElementById('root'))
+        ReactDOM.render(<Main sobrenome='Augusto'/>, document.getElementById('root'))
     </script>
 </body>
 
