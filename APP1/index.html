@@ -16,27 +16,53 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
-        class Main extends React.Component{
 
-            // Construtor deverá herdar da super classe (React.Component)
+        /*
+            Componente Identificação passará um state para os
+            componentes filhos, que os renderizarão através de uma
+            property
+        */
+        
+        const root = document.getElementById('root')
+
+        // Identificação
+        class Identificacao extends React.Component {
+            
             constructor(){
                 super()
                 this.state = {
-                    nome: 'Joao',
-                    idade: 37
+                    nome: 'João Ribeiro',
+                    idade: 32
                 }
             }
 
-            render(){
-                return(
+            render() {
+                return (
                     <div>
-                        <p>Nome: {this.state.nome} {this.props.sobrenome}</p>
-                        <p>Idade: {this.state.idade}</p>
+                        <Nome nome={this.state.nome} />
+                        <Idade idade={this.state.idade} />
                     </div>
                 )
             }
         }
-        ReactDOM.render(<Main sobrenome='Augusto'/>, document.getElementById('root'))
+
+        class Nome extends React.Component {
+            render() {
+                return (
+                    <p>Nome: {this.props.nome}</p>
+                )
+            }
+        }
+
+        class Idade extends React.Component{
+            render(){
+                return(
+                    <p>Idade: {this.props.idade}</p>
+                )
+            }
+        }
+
+        ReactDOM.render(<Identificacao />, root)
     </script>
 </body>
 
