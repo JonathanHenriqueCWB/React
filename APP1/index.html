@@ -4,10 +4,24 @@
 <head>
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        .btnStyle {
+            background-image: radial-gradient(circle, #BA55D3, #9932CC, #663399);
+            color: #FFF;
+            padding: 5px 100px;
+            border-radius: 5px;
+        }
+
+        .fundo {
+            background-image: linear-gradient(0deg, rgba(148, 0, 211, 0.2), rgba(75, 0, 130, 0.2));
+            min-height: 940px;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="root"></div>
+    <div id="root" class="fundo"></div>
 
     <!--Importando a library do react e react DOM na versão do desenvolvedro (CDNs)-->
     <!--Utilização do babel para comprilaão do JSX-->
@@ -16,53 +30,37 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
-
-        /*
-            Componente Identificação passará um state para os
-            componentes filhos, que os renderizarão através de uma
-            property
-        */
-        
         const root = document.getElementById('root')
 
-        // Identificação
-        class Identificacao extends React.Component {
-            
-            constructor(){
-                super()
+        class App extends React.Component {
+
+            constructor(props) {
+                super(props)
+
                 this.state = {
-                    nome: 'João Ribeiro',
-                    idade: 32
+                    nome: 'José'
                 }
+
+                this.cmd_click = this.cmd_click.bind(this)
+            }
+
+            // Evento click
+            cmd_click() {
+                // this.setState({nome: 'Bianca'})
+                (this.state.nome == 'José') ? this.setState({nome: 'Bianca'}) : this.setState({nome: 'José'})
             }
 
             render() {
                 return (
                     <div>
-                        <Nome nome={this.state.nome} />
-                        <Idade idade={this.state.idade} />
+                        <p>Nome: {this.state.nome}</p>
+                        <button className='btnStyle' onClick={this.cmd_click}>Alterar nome</button>
                     </div>
                 )
             }
         }
 
-        class Nome extends React.Component {
-            render() {
-                return (
-                    <p>Nome: {this.props.nome}</p>
-                )
-            }
-        }
-
-        class Idade extends React.Component{
-            render(){
-                return(
-                    <p>Idade: {this.props.idade}</p>
-                )
-            }
-        }
-
-        ReactDOM.render(<Identificacao />, root)
+        ReactDOM.render(<App />, root)
     </script>
 </body>
 
