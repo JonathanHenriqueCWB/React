@@ -5,23 +5,31 @@
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <style>
+        body {
+            background-color: seashell;
+            background-attachment: fixed;
+        }
+
+        .principal {
+            background-image: linear-gradient(0deg, rgba(148, 0, 211, 0.2), rgba(75, 0, 130, 0.2));
+            background-size: 100%;
+            width: 80%;
+            height: 1000px;
+            margin: auto;
+            padding: 10px;
+        }
+
         .btnStyle {
             background-image: radial-gradient(circle, #BA55D3, #9932CC, #663399);
             color: #FFF;
             padding: 5px 100px;
             border-radius: 5px;
         }
-
-        .fundo {
-            background-image: linear-gradient(0deg, rgba(148, 0, 211, 0.2), rgba(75, 0, 130, 0.2));
-            min-height: 940px;
-            padding: 10px;
-        }
     </style>
 </head>
 
 <body>
-    <div id="root" class="fundo"></div>
+    <div id="root" class="principal"></div>
 
     <!--Importando a library do react e react DOM na versão do desenvolvedro (CDNs)-->
     <!--Utilização do babel para comprilaão do JSX-->
@@ -47,7 +55,7 @@
             // Evento click
             cmd_click() {
                 // this.setState({nome: 'Bianca'})
-                (this.state.nome == 'José') ? this.setState({nome: 'Bianca'}) : this.setState({nome: 'José'})
+                (this.state.nome == 'José') ? this.setState({ nome: 'Bianca' }) : this.setState({ nome: 'José' })
             }
 
             render() {
