@@ -4,28 +4,6 @@
 <head>
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <style>
-        body {
-            background-color: seashell;
-            background-attachment: fixed;
-        }
-
-        .principal {
-            background-image: linear-gradient(0deg, rgba(148, 0, 211, 0.2), rgba(75, 0, 130, 0.2));
-            background-size: 100%;
-            width: 80%;
-            height: 1000px;
-            margin: auto;
-            padding: 10px;
-        }
-
-        .btnStyle {
-            background-image: radial-gradient(circle, #BA55D3, #9932CC, #663399);
-            color: #FFF;
-            padding: 5px 100px;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 
 <body>
@@ -40,35 +18,48 @@
     <script type="text/babel">
         const root = document.getElementById('root')
 
-        class App extends React.Component {
+        class Main extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h3>Exercicio de fixação</h3>
+                        <hr />
+                        <Pessoa nome='Jonathan Henrique' sobrenome='Alves de Lima' />
+                        <Pessoa nome='José' sobrenome='Carlos' />
+                        <Pessoa nome='Leticia' sobrenome='Camargo' />
+                    </div>
+                )
+            }
+        }
+
+        // Componente pessoa receberá duas props, as quais serão armazenadas no state
+        class Pessoa extends React.Component {
 
             constructor(props) {
                 super(props)
 
                 this.state = {
-                    nome: 'José'
+                    nome: this.props.nome,
+                    sobrenome: this.props.sobrenome
                 }
 
-                this.cmd_click = this.cmd_click.bind(this)
+                this.cmd_alterar = this.cmd_alterar.bind(this)
             }
 
-            // Evento click
-            cmd_click() {
-                // this.setState({nome: 'Bianca'})
-                (this.state.nome == 'José') ? this.setState({ nome: 'Bianca' }) : this.setState({ nome: 'José' })
+            cmd_alterar() {
+                this.setState({ nome: this.state.sobrenome })
             }
 
             render() {
                 return (
                     <div>
                         <p>Nome: {this.state.nome}</p>
-                        <button className='btnStyle' onClick={this.cmd_click}>Alterar nome</button>
+                        <button onClick={this.cmd_alterar}>Alterar</button>
                     </div>
                 )
             }
         }
-
-        ReactDOM.render(<App />, root)
+        ReactDOM.render(<Main />, root)
     </script>
 </body>
 
