@@ -18,48 +18,31 @@
     <script type="text/babel">
         const root = document.getElementById('root')
 
-        class Main extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <h3>Exercicio de fixação</h3>
-                        <hr />
-                        <Pessoa nome='Jonathan Henrique' sobrenome='Alves de Lima' />
-                        <Pessoa nome='José' sobrenome='Carlos' />
-                        <Pessoa nome='Leticia' sobrenome='Camargo' />
-                    </div>
-                )
-            }
-        }
+        class App extends React.Component {
 
-        // Componente pessoa receberá duas props, as quais serão armazenadas no state
-        class Pessoa extends React.Component {
-
-            constructor(props) {
-                super(props)
-
+            constructor(){
+                super()
                 this.state = {
-                    nome: this.props.nome,
-                    sobrenome: this.props.sobrenome
+                    nome: 'João'
                 }
-
-                this.cmd_alterar = this.cmd_alterar.bind(this)
             }
 
-            cmd_alterar() {
-                this.setState({ nome: this.state.sobrenome })
+            // No caso de errow functions não há necessidade de binding
+            metodo = () =>{
+                this.setState({nome: 'Bianca'})
             }
 
             render() {
                 return (
                     <div>
                         <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.cmd_alterar}>Alterar</button>
+                        <button onClick={this.metodo}>Alterar</button>
                     </div>
                 )
             }
         }
-        ReactDOM.render(<Main />, root)
+
+        ReactDOM.render(<App />, root)
     </script>
 </body>
 
