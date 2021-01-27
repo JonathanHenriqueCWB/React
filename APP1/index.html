@@ -20,16 +20,23 @@
 
         class App extends React.Component {
 
-            metodo = texto => {
-                console.log(texto)
+            metodo(){
+                console.log('Método pertence ao componente PAI')
             }
 
-            // Para passar o parametro e preciso declarar outra arrow function no onClick
             render() {
                 return (
                     <div>
-                        <button onClick={() => this.metodo(`Hello World`)}>Alterar</button>
+                        <CompA metodo={this.metodo}/>
                     </div>
+                )
+            }
+        }
+
+        class CompA extends React.Component{
+            render(){
+                return(
+                    <button onClick={this.props.metodo}>Ativar</button>
                 )
             }
         }
