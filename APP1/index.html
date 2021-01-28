@@ -18,32 +18,74 @@
     <script type="text/babel">
         const root = document.getElementById('root')
 
-        // Passar argumentos de compoente filho para o componente pai
-        class Pai extends React.Component {
+        // Renderização condicional
+        class App extends React.Component {
 
-            exibirArgumento = props => console.log(props)
+            constructor() {
+                super()
+                this.state = {
+                    mostrar: true
+                }
+            }
 
             render() {
                 return (
                     <div>
-                        <p>Component Pai</p>
-                        <Filho exibir={this.exibirArgumento} />
+                        <h3>Renderização Condicional</h3>
+                        <hr />
+
+                        <Opcao1 renderizar={this.state.mostrar} />
+                        <Opcao2 renderizar={this.state.mostrar} />
+                        <Opcao3 renderizar={this.state.mostrar} />
+                        <Opcao4 renderizar={this.state.mostrar} />
                     </div>
                 )
             }
         }
 
-        class Filho extends React.Component {
+        class Opcao1 extends React.Component {
+            render() {
+                if (this.props.renderizar) {
+                    return <p>Primeira opção de renderização, condição verdadeira</p>
+                } else {
+                    return <p>Primeira opção de renderização, condição falsa</p>
+                }
+            }
+        }
+
+        class Opcao2 extends React.Component {
+            render() {
+                let texto
+
+                if (this.props.renderizar) {
+                    texto = <p>Segunda opção de renderização, condição verdadeira</p>
+                } else {
+                    texto = <p>Segunda opção de renderização, condição falsa</p>
+                }
+
+                return texto
+            }
+        }
+
+        class Opcao3 extends React.Component {
             render() {
                 return (
-                    <div>
-                        <p>Component Filho</p>
-                        <button onClick={() => this.props.exibir('Evento disparado com sucesso!!!')}>Disparar evento</button>
-                    </div>
+                    this.props.renderizar ?
+                        <p>Terceira opção de renderização, condição verdadeira</p> :
+                        <p>Terceira opção de renderização, condição falsa</p>
                 )
             }
         }
-        ReactDOM.render(<Pai />, root)
+
+        class Opcao4 extends React.Component {
+            render() {
+                return (
+                    this.props.renderizar && <p>Quarta opção so renderiza se a opção for verdadeira</p>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />, root)
     </script>
 </body>
 
