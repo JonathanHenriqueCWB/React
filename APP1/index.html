@@ -18,30 +18,32 @@
     <script type="text/babel">
         const root = document.getElementById('root')
 
-        class App extends React.Component {
+        // Passar argumentos de compoente filho para o componente pai
+        class Pai extends React.Component {
 
-            metodo(){
-                console.log('Método pertence ao componente PAI')
-            }
+            exibirArgumento = props => console.log(props)
 
             render() {
                 return (
                     <div>
-                        <CompA metodo={this.metodo}/>
+                        <p>Component Pai</p>
+                        <Filho exibir={this.exibirArgumento} />
                     </div>
                 )
             }
         }
 
-        class CompA extends React.Component{
-            render(){
-                return(
-                    <button onClick={this.props.metodo}>Ativar</button>
+        class Filho extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <p>Component Filho</p>
+                        <button onClick={() => this.props.exibir('Evento disparado com sucesso!!!')}>Disparar evento</button>
+                    </div>
                 )
             }
         }
-
-        ReactDOM.render(<App />, root)
+        ReactDOM.render(<Pai />, root)
     </script>
 </body>
 
