@@ -16,76 +16,40 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
+
+        // RENDERIZAÇÃO DE LISTAS E FUNCAO MAP
         const root = document.getElementById('root')
 
-        // Renderização condicional
         class App extends React.Component {
 
-            constructor() {
-                super()
-                this.state = {
-                    mostrar: true
-                }
-            }
-
             render() {
+
+                // Exemplo com array de nomes
+                const nomes = ['bia', 'marcos', 'jose', 'mario', 'carol']
+                const final = nomes.map(n => <h3>{n}</h3>)
+
+                // Exemplo com array de objetos
+                const pessoas = [
+                    { nome: 'João', profissao: 'programador' },
+                    { nome: 'Bianca', profissao: 'DBA' },
+                    { nome: 'Mario', profissao: 'analista' }
+                ]
+                const pessoaFinal = pessoas.map(p => <h3>Nome: {p.nome} profissão: {p.profissao}</h3>)
+
                 return (
                     <div>
-                        <h3>Renderização Condicional</h3>
-                        <hr />
-
-                        <Opcao1 renderizar={this.state.mostrar} />
-                        <Opcao2 renderizar={this.state.mostrar} />
-                        <Opcao3 renderizar={this.state.mostrar} />
-                        <Opcao4 renderizar={this.state.mostrar} />
-                    </div>
-                )
-            }
-        }
-
-        class Opcao1 extends React.Component {
-            render() {
-                if (this.props.renderizar) {
-                    return <p>Primeira opção de renderização, condição verdadeira</p>
-                } else {
-                    return <p>Primeira opção de renderização, condição falsa</p>
-                }
-            }
-        }
-
-        class Opcao2 extends React.Component {
-            render() {
-                let texto
-
-                if (this.props.renderizar) {
-                    texto = <p>Segunda opção de renderização, condição verdadeira</p>
-                } else {
-                    texto = <p>Segunda opção de renderização, condição falsa</p>
-                }
-
-                return texto
-            }
-        }
-
-        class Opcao3 extends React.Component {
-            render() {
-                return (
-                    this.props.renderizar ?
-                        <p>Terceira opção de renderização, condição verdadeira</p> :
-                        <p>Terceira opção de renderização, condição falsa</p>
-                )
-            }
-        }
-
-        class Opcao4 extends React.Component {
-            render() {
-                return (
-                    this.props.renderizar && <p>Quarta opção so renderiza se a opção for verdadeira</p>
+                        {pessoaFinal}
+                    </div >
                 )
             }
         }
 
         ReactDOM.render(<App />, root)
+
+        // Exemplo do funcionamento da funcao Map
+        let nomes = ['Bianca', 'Jose', 'Marcos']
+        const final = nomes.map(n => 'Bom dia, ' + n)
+        // console.log(final)
     </script>
 </body>
 
