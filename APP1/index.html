@@ -21,35 +21,45 @@
         const root = document.getElementById('root')
 
         class App extends React.Component {
-
             render() {
 
-                // Exemplo com array de nomes
-                const nomes = ['bia', 'marcos', 'jose', 'mario', 'carol']
-                const final = nomes.map(n => <h3>{n}</h3>)
-
-                // Exemplo com array de objetos
-                const pessoas = [
-                    { nome: 'João', profissao: 'programador' },
-                    { nome: 'Bianca', profissao: 'DBA' },
-                    { nome: 'Mario', profissao: 'analista' }
+                const noticias = [
+                    { titulo: 'Covid 19', texto: 'O covide 19 no brasil', autor: 'Jonathan Lima' },
+                    { titulo: 'Bolsa de valores', texto: 'Queda na bolsa de valores', autor: 'Amanda' },
+                    { titulo: 'Camaera dos deputados', texto: 'Inicia hoje o processo de votação', autor: 'Caio' },
                 ]
-                const pessoaFinal = pessoas.map(p => <h3>Nome: {p.nome} profissão: {p.profissao}</h3>)
+                // Convertendo array de objeto em array de noticias
+                const noticiaFinal = noticias.map(n => <Noticia noticia={n} />)
 
                 return (
                     <div>
-                        {pessoaFinal}
-                    </div >
+                        <h2>Notícias</h2>
+                        <hr />
+                        <Noticia noticia={noticias[0]} />
+                        {noticiaFinal}
+                    </div>
+                )
+            }
+        }
+
+        // Não passar um array de objeto, apneas um objeto por renderização
+        class Noticia extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h3>{this.props.noticia.titulo}</h3>
+                        <p>{this.props.noticia.texto}</p>
+                        <small><i>{this.props.noticia.autor}</i></small>
+                    </div>
                 )
             }
         }
 
         ReactDOM.render(<App />, root)
-
-        // Exemplo do funcionamento da funcao Map
-        let nomes = ['Bianca', 'Jose', 'Marcos']
-        const final = nomes.map(n => 'Bom dia, ' + n)
-        // console.log(final)
     </script>
 </body>
 
