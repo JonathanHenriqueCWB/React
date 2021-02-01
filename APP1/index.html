@@ -5,13 +5,23 @@
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <style>
+        body {
+            background-color: #ccc;
+        }
+
         #root {
             width: 70%;
             margin: auto;
+            background-color: #ffffff;
+            padding: 20px;
         }
 
-        body {
-            background-color: #ccc;
+        .cor-vermelha {
+            color: red;
+        }
+
+        .tamanho {
+            font-size: 2em;
         }
     </style>
 </head>
@@ -31,22 +41,27 @@
         const root = document.getElementById('root')
 
         class Main extends React.Component {
+
+            constructor(props) {
+                super(props)
+            }
+
             render() {
 
-                const nomes = ['Ana', 'Marcelo', 'Biatriz', 'Jose', 'Ana']
-                const nomeFinal = nomes.map((nome, index) => <h3 key={index}>{index} - {nome}</h3>)
+                const cor = this.props.cor ? 'cor-vermelha' : ''
+                const tamanho = this.props.tamanho ? 'tamanho' : ''
 
                 return (
                     <div>
                         <h1>Componente principal</h1>
                         <hr />
-                        {nomeFinal}
+                        <p className={`${cor} ${tamanho}`}>Texto com estilo</p>
                     </div>
                 )
             }
         }
 
-        ReactDOM.render(<Main />, root)
+        ReactDOM.render(<Main cor={true} tamanho={true} />, root)
     </script>
 </body>
 
