@@ -4,6 +4,16 @@
 <head>
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        #root {
+            width: 70%;
+            margin: auto;
+        }
+
+        body {
+            background-color: #ccc;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,38 +33,14 @@
         class Main extends React.Component {
             render() {
 
-                const frutas = ['Banana', 'Maça', 'Abacate']
-                // Adicionando uma key para os elementos, nesse caso o nome será o identificador chave
-                const frutasFinal = frutas.map(n => <h2 key={n} >{n}</h2>)
-
-                const socios = [
-                    { id: 1, nome: 'João', idade: 46 },
-                    { id: 2, nome: 'Ana', idade: 25 }
-                ]
-                // No casso de objetos deve ser definido um id para cada elemento
-                const socioFinal = socios.map(s => <Socios key={s.id} socio={s} />)
+                const nomes = ['Ana', 'Marcelo', 'Biatriz', 'Jose', 'Ana']
+                const nomeFinal = nomes.map((nome, index) => <h3 key={index}>{index} - {nome}</h3>)
 
                 return (
                     <div>
                         <h1>Componente principal</h1>
                         <hr />
-                        {socioFinal}
-                    </div>
-                )
-            }
-        }
-
-        class Socios extends React.Component {
-
-            constructor(props) {
-                super(props)
-            }
-
-            render() {
-                return (
-                    <div>
-                        <p>Nome: {this.props.socio.nome}</p>
-                        <p>Idade: {this.props.socio.idade}</p>
+                        {nomeFinal}
                     </div>
                 )
             }
