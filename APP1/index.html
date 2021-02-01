@@ -20,30 +20,32 @@
         // RENDERIZAÇÃO DE LISTAS E FUNCAO MAP
         const root = document.getElementById('root')
 
-        class App extends React.Component {
+        class Main extends React.Component {
             render() {
 
-                const noticias = [
-                    { titulo: 'Covid 19', texto: 'O covide 19 no brasil', autor: 'Jonathan Lima' },
-                    { titulo: 'Bolsa de valores', texto: 'Queda na bolsa de valores', autor: 'Amanda' },
-                    { titulo: 'Camaera dos deputados', texto: 'Inicia hoje o processo de votação', autor: 'Caio' },
+                const frutas = ['Banana', 'Maça', 'Abacate']
+                // Adicionando uma key para os elementos, nesse caso o nome será o identificador chave
+                const frutasFinal = frutas.map(n => <h2 key={n} >{n}</h2>)
+
+                const socios = [
+                    { id: 1, nome: 'João', idade: 46 },
+                    { id: 2, nome: 'Ana', idade: 25 }
                 ]
-                // Convertendo array de objeto em array de noticias
-                const noticiaFinal = noticias.map(n => <Noticia noticia={n} />)
+                // No casso de objetos deve ser definido um id para cada elemento
+                const socioFinal = socios.map(s => <Socios key={s.id} socio={s} />)
 
                 return (
                     <div>
-                        <h2>Notícias</h2>
+                        <h1>Componente principal</h1>
                         <hr />
-                        <Noticia noticia={noticias[0]} />
-                        {noticiaFinal}
+                        {socioFinal}
                     </div>
                 )
             }
         }
 
-        // Não passar um array de objeto, apneas um objeto por renderização
-        class Noticia extends React.Component {
+        class Socios extends React.Component {
+
             constructor(props) {
                 super(props)
             }
@@ -51,15 +53,14 @@
             render() {
                 return (
                     <div>
-                        <h3>{this.props.noticia.titulo}</h3>
-                        <p>{this.props.noticia.texto}</p>
-                        <small><i>{this.props.noticia.autor}</i></small>
+                        <p>Nome: {this.props.socio.nome}</p>
+                        <p>Idade: {this.props.socio.idade}</p>
                     </div>
                 )
             }
         }
 
-        ReactDOM.render(<App />, root)
+        ReactDOM.render(<Main />, root)
     </script>
 </body>
 
