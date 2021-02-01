@@ -48,20 +48,27 @@
 
             render() {
 
-                const cor = this.props.cor ? 'cor-vermelha' : ''
-                const tamanho = this.props.tamanho ? 'tamanho' : ''
+                // Com Style inline não funcionara como no className 
+                const estilo = {
+                    color: "red",
+                    fontSize: "2em",
+                }
+
+                const estilo2 ={
+                    border: "1px solid red"
+                }
 
                 return (
                     <div>
                         <h1>Componente principal</h1>
                         <hr />
-                        <p className={`${cor} ${tamanho}`}>Texto com estilo</p>
+                        <p style={estilo}>Texto com estilo</p>
                     </div>
                 )
             }
         }
 
-        ReactDOM.render(<Main cor={true} tamanho={true} />, root)
+        ReactDOM.render(<Main />, root)
     </script>
 </body>
 
