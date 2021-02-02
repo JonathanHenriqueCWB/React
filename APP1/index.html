@@ -36,39 +36,46 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
-
-        // RENDERIZAÇÃO DE LISTAS E FUNCAO MAP
         const root = document.getElementById('root')
 
-        class Main extends React.Component {
-
-            constructor(props) {
-                super(props)
-            }
-
+        class App extends React.Component {
             render() {
-
-                // Com Style inline não funcionara como no className 
-                const estilo = {
-                    color: "red",
-                    fontSize: "2em",
-                }
-
-                const estilo2 ={
-                    border: "1px solid red"
-                }
-
                 return (
                     <div>
-                        <h1>Componente principal</h1>
+                        <h1>Imputs de Formularios</h1>
                         <hr />
-                        <p style={estilo}>Texto com estilo</p>
+                        <Formulario />
                     </div>
                 )
             }
         }
 
-        ReactDOM.render(<Main />, root)
+        class Formulario extends React.Component {
+
+            constructor() {
+                super()
+                this.state = {
+                    texto: ''
+                }
+            }
+
+            alterarTexto = (event) => {
+                this.setState({ texto: event.target.value })
+            }
+
+            render() {
+                return (
+                    <div>
+                        <form action="">
+                            <input type="text" value={this.state.texto} onChange={this.alterarTexto} />
+                            <p>Texto: {this.state.texto}</p>
+                        </form>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />, root)
     </script>
 </body>
 
