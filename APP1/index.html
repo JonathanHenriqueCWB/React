@@ -4,19 +4,11 @@
 <head>
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="estiloLogin.css">
 </head>
 
 <body>
-
     <div id="root" class="principal"></div>
-
-    <div id="form">
-        <h3>Select de HTML</h3>
-        <select>
-            <option value="">Itemn 1</option>
-        </select>
-    </div>
 
     <!--Importando a library do react e react DOM na versão do desenvolvedro (CDNs)-->
     <!--Utilização do babel para comprilaão do JSX-->
@@ -31,38 +23,51 @@
             render() {
                 return (
                     <div>
-                        <h3>ReactJS - Formularios, inputs de select</h3>
-                        <hr />
-                        <Formulario />
+                        <Login />
                     </div>
                 )
             }
         }
 
-        class Formulario extends React.Component {
+        class Login extends React.Component {
             constructor() {
                 super()
                 this.state = {
-                    item: 'item3'
+                    user: '',
+                    password: ''
                 }
             }
 
-            alterarItem = e => this.setState({item: e.target.value})
+            alterarUserName = e => this.setState({ user: e.target.value })
+            alterarPassword = e => this.setState({ password: e.target.value })
+            enviarDados = (e) => {
+                console.log('Usuario: ', this.state.user)
+                console.log('Senha: ', this.state.password)
+                // Essa função não deixa o formulario fazer a submsão (somente teste)
+                e.preventDefault() 
+            }
 
             render() {
                 return (
                     <div>
-                        <h3>Select React</h3>
-                        <select value={this.state.item} onChange={this.alterarItem} >
-                            <option value="item1">Item 1</option>
-                            <option value="item2">Item 2</option>
-                            <option value="item3">Item 3</option>
-                        </select>
-                        <p>Item selecionado: {this.state.item}</p>
+                        <h1>User Login</h1>
+
+                        <form onSubmit={this.enviarDados}>
+                            <input type="text" value={this.state.user} onChange={this.alterarUserName} placeholder="Entre com nome do usuario" />
+                            <input type="password" value={this.state.password} onChange={this.alterarPassword} placeholder="Entre com a senha do usuario" />
+                            <button>Login</button>
+                        </form>
+
+                        <p>Ainda não tem registro? Registre-se agora</p>
+                        <p>Registrese qui!</p>
+                        <link rel="stylesheet" href="" value={this.state.user} />
+
                     </div>
                 )
             }
+
         }
+
         ReactDOM.render(<App />, root)
     </script>
 </body>
