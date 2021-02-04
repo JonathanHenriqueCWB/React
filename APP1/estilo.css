@@ -1,0 +1,25 @@
+body {
+    background-color: #ccc;
+}
+
+#root {
+    width: 70%;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+#form {
+    width: 70%;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.cor-vermelha {
+    color: red;
+}
+
+.tamanho {
+    font-size: 2em;
+}

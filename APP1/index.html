@@ -4,30 +4,19 @@
 <head>
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <style>
-        body {
-            background-color: #ccc;
-        }
-
-        #root {
-            width: 70%;
-            margin: auto;
-            background-color: #ffffff;
-            padding: 20px;
-        }
-
-        .cor-vermelha {
-            color: red;
-        }
-
-        .tamanho {
-            font-size: 2em;
-        }
-    </style>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
+
     <div id="root" class="principal"></div>
+
+    <div id="form">
+        <h3>Select de HTML</h3>
+        <select>
+            <option value="">Itemn 1</option>
+        </select>
+    </div>
 
     <!--Importando a library do react e react DOM na versão do desenvolvedro (CDNs)-->
     <!--Utilização do babel para comprilaão do JSX-->
@@ -39,28 +28,41 @@
         const root = document.getElementById('root')
 
         class App extends React.Component {
-            constructor() {
-                super()
-                this.state = {
-                    texto: ''
-                }
-            }
-
-            alterarValor = (e) => this.setState({texto: e.target.value})
-
             render() {
                 return (
                     <div>
-                        <textarea onChange={this.alterarValor} cols="30" rows="10"></textarea>
-                        <h3>Texto:</h3>
-                        <p>{this.state.texto}</p>
+                        <h3>ReactJS - Formularios, inputs de select</h3>
+                        <hr />
+                        <Formulario />
                     </div>
                 )
             }
         }
 
+        class Formulario extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    item: 'item3'
+                }
+            }
 
+            alterarItem = e => this.setState({item: e.target.value})
 
+            render() {
+                return (
+                    <div>
+                        <h3>Select React</h3>
+                        <select value={this.state.item} onChange={this.alterarItem} >
+                            <option value="item1">Item 1</option>
+                            <option value="item2">Item 2</option>
+                            <option value="item3">Item 3</option>
+                        </select>
+                        <p>Item selecionado: {this.state.item}</p>
+                    </div>
+                )
+            }
+        }
         ReactDOM.render(<App />, root)
     </script>
 </body>
