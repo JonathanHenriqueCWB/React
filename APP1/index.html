@@ -39,19 +39,6 @@
         const root = document.getElementById('root')
 
         class App extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <h1>Imputs de Formularios</h1>
-                        <hr />
-                        <Formulario />
-                    </div>
-                )
-            }
-        }
-
-        class Formulario extends React.Component {
-
             constructor() {
                 super()
                 this.state = {
@@ -59,21 +46,20 @@
                 }
             }
 
-            alterarTexto = (event) => {
-                this.setState({ texto: event.target.value })
-            }
+            alterarValor = (e) => this.setState({texto: e.target.value})
 
             render() {
                 return (
                     <div>
-                        <form action="">
-                            <input type="text" value={this.state.texto} onChange={this.alterarTexto} />
-                            <p>Texto: {this.state.texto}</p>
-                        </form>
+                        <textarea onChange={this.alterarValor} cols="30" rows="10"></textarea>
+                        <h3>Texto:</h3>
+                        <p>{this.state.texto}</p>
                     </div>
                 )
             }
         }
+
+
 
         ReactDOM.render(<App />, root)
     </script>
