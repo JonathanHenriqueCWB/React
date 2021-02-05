@@ -1,0 +1,33 @@
+body{
+    background-image: linear-gradient(DarkOrchid, DarkSlateBlue);
+    background-attachment: fixed;
+}
+
+#root{
+    background-color: #fff;
+    width: 300px; height: 500px;
+    margin: 5% auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+form{
+    margin-top: 35px;
+}
+
+input{
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+button{
+    background-image: linear-gradient(to right, rgba(153, 50, 204,0.9),rgba(72, 61, 139,0.9));
+    color: #fff;
+    width: 89%;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
