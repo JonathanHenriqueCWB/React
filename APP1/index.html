@@ -4,7 +4,7 @@
 <head>
     <title>React Basico</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <link rel="stylesheet" href="estiloLogin.css">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
@@ -20,52 +20,34 @@
         const root = document.getElementById('root')
 
         class App extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <Login />
-                    </div>
-                )
-            }
-        }
-
-        class Login extends React.Component {
             constructor() {
                 super()
                 this.state = {
-                    user: '',
-                    password: ''
+                    nome: 'João'
                 }
+                console.log('Construtor')
             }
 
-            alterarUserName = e => this.setState({ user: e.target.value })
-            alterarPassword = e => this.setState({ password: e.target.value })
-            enviarDados = (e) => {
-                console.log('Usuario: ', this.state.user)
-                console.log('Senha: ', this.state.password)
-                // Essa função não deixa o formulario fazer a submsão (somente teste)
-                e.preventDefault() 
+            componentDidMount() {
+                console.log('Montado')
             }
 
+            alterar = () => {
+                this.setState({ nome: 'Bianca' })
+                console.log('Alterar')
+            }
+            
             render() {
+                console.log('Render')
                 return (
                     <div>
-                        <h1>User Login</h1>
-
-                        <form onSubmit={this.enviarDados}>
-                            <input type="text" value={this.state.user} onChange={this.alterarUserName} placeholder="Entre com nome do usuario" />
-                            <input type="password" value={this.state.password} onChange={this.alterarPassword} placeholder="Entre com a senha do usuario" />
-                            <button>Login</button>
-                        </form>
-
-                        <p>Ainda não tem registro? Registre-se agora</p>
-                        <p>Registrese qui!</p>
-                        <link rel="stylesheet" href="" value={this.state.user} />
-
+                        {this.state.nome}
+                        <div>
+                            <button onClick={this.alterar}>Alterar</button>
+                        </div>
                     </div>
                 )
             }
-
         }
 
         ReactDOM.render(<App />, root)
