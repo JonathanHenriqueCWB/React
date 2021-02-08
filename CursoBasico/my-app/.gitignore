@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/backup.zip
+/backupLimpo.zip
 /.pnp
 .pnp.js
 
