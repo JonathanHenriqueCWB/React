@@ -20,35 +20,29 @@
         const root = document.getElementById('root')
 
         class App extends React.Component {
+
             constructor() {
                 super()
                 this.state = {
-                    nome: 'João'
+                    texto: 'Texto padrão'
                 }
-                console.log('Construtor')
             }
 
-            componentDidMount() {
-                console.log('Montado')
-            }
-
-            alterar = () => {
-                this.setState({ nome: 'Bianca' })
-                console.log('Alterar')
-            }
-            
             render() {
-                console.log('Render')
+
+                const mudarNome = () => {
+                    this.setState({ texto: 'Texto alterado com sucesso' })
+                }
+
                 return (
                     <div>
-                        {this.state.nome}
-                        <div>
-                            <button onClick={this.alterar}>Alterar</button>
-                        </div>
+                        <p>Nome: {this.state.texto}</p>
+                        <button onClick={mudarNome}>Alterar Nome</button>
                     </div>
                 )
             }
         }
+
 
         ReactDOM.render(<App />, root)
     </script>

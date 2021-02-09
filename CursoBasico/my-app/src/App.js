@@ -6,6 +6,7 @@ import Noticia from './Noticias/Noticia'
 import Child1 from './Child/Child1'
 import Child2 from './Child/Child2'
 import reactDom from 'react-dom';
+import Hooks from './metodosHooks/Hook'
 
 class App extends React.Component {
 
@@ -62,8 +63,15 @@ class App extends React.Component {
            */
         }
 
-        <h3 className='cor-texto'>Texto da minha aplicação</h3>
-        <h4 style={estilo}>Um pouco de CSS</h4>
+        {
+          /**
+           <h3 className='cor-texto'>Texto da minha aplicação</h3>
+           <h4 style={estilo}>Um pouco de CSS</h4>
+          */
+        }
+
+        <Hooks />
+
       </div>
     )
   }

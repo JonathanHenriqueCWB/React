@@ -11,6 +11,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          
           <Navegacao />
 
           <Switch>
@@ -26,9 +27,9 @@ class App extends React.Component {
               <Contatos />
             </Route>
           </Switch>
+
         </div>
       </Router>
-
     )
   }
 }
