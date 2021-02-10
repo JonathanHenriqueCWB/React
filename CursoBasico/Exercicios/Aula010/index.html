@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-image: url('fundo.jpg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+
+        #main{
+            width: 70%;
+            height: 1000px;
+            margin: auto;
+            background-color:rgba(255,255,255, 0.5);
+            background-size: 10%;padding: 20px;
+        }
+
+        .btnStyle{
+            background-image: linear-gradient(90deg,rgba(0,0,255, 0.3), rgba(0,255,0, 0.3), rgba(255,0,0, 0.3));
+            padding: 10px 100px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        const main = document.getElementById('main')
+
+        class Main extends React.Component{
+            constructor(props){
+                super(props)
+                this.state = {
+                    nome: 'Bianca'
+                }
+                this.mudar = this.mudar.bind(this)
+            }
+
+            mudar(){
+                (this.state.nome == 'Bianca') ? this.setState({nome: 'Rosangela'}) : this.setState({nome: 'Bianca'})
+                console.log("Testando evento")
+            }
+
+            render(){
+                return(
+                    <div>
+                        <p>Nome: {this.state.nome}</p>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, perspiciatis maxime doloremque quos ea qui dolorem reprehenderit modi dolore amet velit repellat cum accusamus saepe pariatur asperiores obcaecati corrupti quidem!</p>
+                        <button className='btnStyle' onClick={this.mudar}>Alterar Usuario</button>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Main />, main)
+    </script>
+</body>
+
+</html>

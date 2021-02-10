@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById('root')
+
+        // Passando parametros/argumentos do componente filho para o pai 
+        class Pai extends React.Component{
+
+            exibirArgumento = props => console.log(props)
+
+            render(){
+                return(
+                    <div>
+                        <h3>Passando parametro/argumentos do componente filho para component pai</h3>
+                        <hr />
+                        <Filho evento={this.exibirArgumento}/>
+                    </div>
+                )
+            }
+        }
+
+        class Filho extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <h4>Compoente Filho</h4>
+                        <button onClick={()=> this.props.evento('Evento disparado com sucesso')}>Disparar evento</button>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Pai />, root)
+    </script>
+</body>
+
+</html>

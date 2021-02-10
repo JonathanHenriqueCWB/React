@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgba(127, 83, 167, 0.2)
+        }
+        #root{
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById('root')
+
+        class Main extends React.Component {
+            render() {
+
+                const post = [
+                    { titulo: 'Covid 19', texto: 'O covide 19 no Brasil', autor: 'Jonathan Lima' },
+                    { titulo: 'Bolsa de valores', texto: 'Bolsa de valores despenca após...', autor: 'Gesica Santos' },
+                    { titulo: 'Camera dos deputados', texto: 'Eleições para devinir novo presidente da camera', autor: 'José Carlos' },
+                    { titulo: 'Enchentes e Santos', texto: 'Baixada Paulista sofre com enchentes', autor: 'Renata Carvalho' },
+                ]
+                // Convertendo array de objetos em array de postagem
+                const ArrayPostagens = post.map(p => <Postagens post={p} />)
+
+                return (
+                    <div>
+                        <h1>Cabeçalho</h1>
+                        <hr />
+                        {ArrayPostagens}
+                    </div>
+                )
+            }
+        }
+
+        class Postagens extends React.Component {
+
+            constructor(props) {
+                super(props)
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h2>{this.props.post.titulo}</h2>
+                        <p>{this.props.post.texto}</p>
+                        <small>{this.props.post.autor}</small>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Main />, root)
+    </script>
+</body>
+
+</html>

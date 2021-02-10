@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renderizacao de listas com map</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+        class App extends React.Component {
+            render() {
+
+                const nomes = ['Mario', 'Yosh', 'Luigi']
+                const nomesFinal = nomes.map(n => <h3>{n}</h3>)
+
+                const pessoas = [
+                    { nome: 'Bianca', profissao: 'Programadora' },
+                    { nome: 'Jose', profissao: 'Bartender' },
+                    { nome: 'Jonathan Henrique', profissao: 'Garçon' }
+                ]
+                const pessoFinal = pessoas.map(p => <h3>Nome: {p.nome}, Profissão: {p.profissao} </h3>)
+
+                return (
+                    <div>
+                        {pessoFinal}
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('root'))
+        /*
+            Map serve para mapear um array, com eventuais mudanças
+            Mapeará um array para outro do mesmo tanho (indice)
+            Pode ser feita operações no array gerado pelo map
+            Não modifica o array original
+            Exemplo...
+        */
+
+        // Criando um array para usar no map
+        const numero = [1, 2, 3, 4, 5]
+
+        // Mapear um array multiplicando os valores
+        const numerosMapeados1 = numero.map(function (e) {
+            return e * 2
+        })
+        console.log(numerosMapeados1)
+
+        // Usando arrow function
+        const numerosMapeados2 = numero.map(n => {
+            return n*2
+        })
+        console.log(numerosMapeados2)
+
+        // Com apenas uma linha de código podemos remover o return da arrow function
+        const numerosMapeados3 = numero.map(n => n * 2)
+        console.log(numerosMapeados3)
+
+
+    </script>
+</body>
+
+</html>

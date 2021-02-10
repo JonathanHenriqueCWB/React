@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .cor{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById('root')
+
+        class App extends React.Component{
+            render(){
+                
+                // Não funciona com style inline somente com className
+                const red = 'cor' 
+                // Funciona com apenas um objeto, não pode ser utilizado mais de um por tag
+                const estilo = {
+                    color: 'red'
+                }
+                // Testando com 2 objetos de estilo
+                const estiloTeste = {
+                    fontSize: "2em"
+                }
+
+                return(
+                    <div>
+                        <h1>CSS inline Condicionalmente</h1>
+                        <hr />
+                        <p style={estilo}>Texto a ser estilizado</p>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />, root)
+    </script>
+</body>
+</html>

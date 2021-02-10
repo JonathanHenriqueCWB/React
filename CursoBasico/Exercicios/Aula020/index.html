@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        #root {
+            background-color: #ffffff;
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const root = document.getElementById('root')
+
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h1>Input Formularios</h1>
+                        <hr />
+                        <Formulario />
+                    </div>
+                )
+            }
+        }
+
+        class Formulario extends React.Component {
+
+            constructor() {
+                super()
+                this.state = {
+                    texto: ''
+                }
+            }
+
+            escrever = (event) => {
+                this.setState({ texto: event.target.value })
+            }
+
+            render() {
+                return (
+                    <div>
+                        <form action="">
+                            <input type="text" placeholder='Digite o texto aqui!' value={this.state.texto} onChange={this.escrever} />
+                            <p>{this.state.texto}</p>
+                        </form>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />, root)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renderização condicional</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById('root')
+
+        class App extends React.Component {
+
+            constructor() {
+                super()
+                this.state = {
+                    ativado: true
+                }
+            }
+
+            render() {
+                return (
+                    <div>
+                        <Opcao1 mostrarOuNao={this.state.ativado} />
+                        <Opcao2 mostrarOuNao={this.state.ativado} />
+                        <Opcao3 mostrarOuNao={this.state.ativado} />
+                        <Opcao4 mostrarOuNao={this.state.ativado} />
+                    </div>
+                )
+            }
+        }
+
+        class Opcao1 extends React.Component {
+            render() {
+                if (this.props.mostrarOuNao) {
+                    return <p>Primeira opção: Status ativado</p>
+                } else {
+                    return <p>Primeira opção: Status desativado</p>
+                }
+            }
+        }
+
+        class Opcao2 extends React.Component {
+            render() {
+                let texto
+
+                if (this.props.mostrarOuNao) {
+                    texto = <p>Segunda opção: Status ativado</p>
+                } else {
+                    texto = <p>Segunda opção: Status desativado</p>
+                }
+
+                return texto
+            }
+        }
+
+        class  Opcao3 extends React.Component{
+            render(){
+                return(
+                    this.props.mostrarOuNao ? <p>Terceira opção: Status ativado</p> : <p>Terceira opção: Status desativado</p>
+                )
+            }
+        }
+
+        class Opcao4 extends React.Component{
+            render(){
+                return(
+                    this.props.mostrarOuNao && <p>Quarta opcao so renderiza como true</p>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />, root)
+    </script>
+
+</body>
+
+</html>

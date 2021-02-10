@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="root"></div>
+    <div>
+        <h3>Formulario de HTML</h3>
+        <select name="" id="">
+            <option value="item1">Item 1</option>
+            <option value="item2">Item 2</option>
+            <option value="item3" selected >Item 3</option>
+        </select>
+    </div>
+
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        const main = document.getElementById('root')
+
+        class App extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    item: 'item2'
+                }
+            }
+
+            alterarValor = e => this.setState({ item: e.target.value })
+
+            render() {
+                return (
+                    <div>
+                        <h1>Input Select</h1>
+                        <hr />
+
+                        <h3>Formulario de React</h3>
+                        <select value={this.state.item} onChange={this.alterarValor}>
+                            <option value="item1">Item 1</option>
+                            <option value="item2">Item 2</option>
+                            <option value="item3">Item 3</option>
+                        </select>
+                        <p>Opção selecionada: {this.state.item}</p>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />, main)
+    </script>
+</body>
+
+</html>

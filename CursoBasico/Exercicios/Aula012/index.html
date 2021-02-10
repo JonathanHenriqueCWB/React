@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        const principal = document.getElementById('root')
+
+        // Esse componente passara o evento como propriedade
+        class App extends React.Component{
+
+            evento = () => console.log('Evento disparado com sucesso!')
+
+            render(){
+                return(
+                    <div>
+                        <h3>Disparando um evento no componente pai pelo componente filho</h3>
+                        <hr />
+                        <Child evento={this.evento}/>
+                    </div>
+                )
+            }
+        }
+
+        // Esse componente disparará o evento vindo na props
+        class Child extends React.Component{
+            render(){
+                return(
+                    <button onClick={this.props.evento}>Disparar evento</button>
+                )
+            }
+        }
+        ReactDOM.render(<App />, principal)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        #root {
+            background-color: #fff;
+            width: 70%;
+            margin: auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const root = document.getElementById('root')
+            class App extends React.Component{
+                render(){
+                    return(
+                        <div>
+                            <h1>Inputs - Listas</h1>
+                            <hr />
+                            <Formulario />
+                            <Formulario />
+                        </div>
+                    )
+                }
+            }
+
+            class Formulario extends React.Component{
+
+                constructor(){
+                    super()
+                    this.state = {
+                        texto: ''
+                    }
+                }
+
+                alterarTexto = (event) => this.setState({texto: event.target.value})
+
+                render(){
+                    return(
+                        <form action="">
+                            <input type="text" value={this.state.texto} onChange={this.alterarTexto} />
+                            <p>Texto: {this.state.texto}</p>
+                        </form>
+                    )
+                }
+            }
+        ReactDOM.render(<App />, root)
+    </script>
+</body>
+
+</html>
