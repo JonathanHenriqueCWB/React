@@ -1,5 +1,7 @@
 body {
-    background-color: lightgray;
+    /*background-image: linear-gradient(DarkSlateBlue, DarkOrchid, MediumVioletRed, OrangeRed, Orange); */
+    font-family: Oswald;
+    text-align: center;
 }
 
 #root{
@@ -9,4 +11,9 @@ body {
     width: 70%;
     min-height: 940px;
     padding: 2%;
+}
+
+h1, h2, h3 {
+    font-weight: 400;
+    margin: 0;
 }
