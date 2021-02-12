@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 
 import Primeiro from './components/basicos/Primeiro'
 import ComParametro from './components/basicos/ComParametro'
@@ -8,21 +9,21 @@ import Card from './components/layout/Card'
 
 const App = () => {
     return (
-        <>
+        <div className='Cards'>
 
-            <Card titulo='Desafio aleatório' >
+            <Card titulo='Desafio aleatório' color='#fddf00' >
                 <Aleatorio min={10} max={50} />
             </Card>
-            <Card titulo='Fragment'>
+            <Card titulo='Fragment' color='#73f900'>
                 <Fragmento />
             </Card>
-            <Card titulo='Function Component com parâmetros'>
+            <Card titulo='Function Component com parâmetros' color='#a030cc'>
                 <ComParametro titulo='Componente com Parametro' texto='Parametro passado pelo Parent Component' />
             </Card>
-            <Card titulo='Primeiro component'>
+            <Card titulo='Primeiro component' color='#80f9ed'>
                 <Primeiro />
             </Card>
-        </>
+        </div>
     )
 }
 

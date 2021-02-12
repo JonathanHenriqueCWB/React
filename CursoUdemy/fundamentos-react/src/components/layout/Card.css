@@ -1,20 +1,30 @@
 .Card {
-    background-image: linear-gradient(to right, DarkOrchid,  mediumVioletRed);
-    border: 3px solid DarkOrchid;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 10px;
+  /*
+  background-image: linear-gradient(to right, DarkOrchid, mediumVioletRed);
+  border: 3px solid DarkOrchid;
+  */
+  border:  3px solid;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 5px;
+  min-width: 400px;
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.Title{
-    padding: 10px 0px;
-    display: flex;
-    justify-content: center;
-    color: white;
+.Title {
+  padding: 10px 0px;
+
+  /*display: flex;
+    justify-content: center;*/
 }
 
-.Content{
-    background-color: #fff;
-    color: #000;
-    padding: 10px;
+.Content {
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+
+  flex-grow: 1;
 }
