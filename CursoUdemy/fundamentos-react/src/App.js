@@ -7,25 +7,37 @@ import Fragmento from './components/basicos/Fragmento'
 import Aleatorio from './components/basicos/Aleatorio'
 import Card from './components/layout/Card'
 import Familia from './components/basicos/Familia'
+import FamiliaMenbro from './components/basicos/FamiliaMenbro'
 
 const App = () => {
     return (
         <div className='Cards'>
+
             <Card titulo='Child component' color='#dc533f'>
-                <Familia sobrenome='Silva'/>
+                <Familia sobrenome='Silva'>
+                    <FamiliaMenbro nome='Pedro' />
+                    <FamiliaMenbro nome='Ana' />
+                    <FamiliaMenbro nome='Gustavo' />
+                    <FamiliaMenbro nome='José' />
+                </Familia>
             </Card>
+
             <Card titulo='Desafio aleatório' color='#fddf00' >
                 <Aleatorio min={10} max={50} />
             </Card>
+
             <Card titulo='Fragment' color='#73f900'>
                 <Fragmento />
             </Card>
+
             <Card titulo='Function Component com parâmetros' color='#a030cc'>
                 <ComParametro titulo='Componente com Parametro' texto='Parametro passado pelo Parent Component' />
             </Card>
+
             <Card titulo='Primeiro component' color='#80f9ed'>
                 <Primeiro />
             </Card>
+
         </div>
     )
 }
