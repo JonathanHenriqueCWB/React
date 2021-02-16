@@ -1,17 +1,28 @@
 import React from 'react'
 import './App.css'
 
+import Card from './components/layout/Card'
+
 import Primeiro from './components/basicos/Primeiro'
 import ComParametro from './components/basicos/ComParametro'
 import Fragmento from './components/basicos/Fragmento'
 import Aleatorio from './components/basicos/Aleatorio'
-import Card from './components/layout/Card'
 import Familia from './components/basicos/Familia'
 import FamiliaMenbro from './components/basicos/FamiliaMenbro'
+import ListaAlunos from './components/repeticao/ListaAlunos'
+import Produtos from './components/repeticao/TabelaProdutos'
 
 const App = () => {
     return (
         <div className='Cards'>
+
+            <Card titulo='Repetição desafio' color='#ffc800'>
+                <Produtos />
+            </Card>
+
+            <Card titulo='Repetição' color='#66A594'>
+                <ListaAlunos />
+            </Card>
 
             <Card titulo='Child component' color='#dc533f'>
                 <Familia sobrenome='Silva'>

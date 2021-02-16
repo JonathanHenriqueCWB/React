@@ -1,9 +1,6 @@
 import React, {cloneElement} from 'react'
 
 const Familia = props => {
-
-    console.log(props.sobrenome)
-
     return (
         <div>
             {/* {props.children} */}
