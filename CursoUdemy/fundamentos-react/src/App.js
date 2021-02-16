@@ -11,10 +11,18 @@ import Familia from './components/basicos/Familia'
 import FamiliaMenbro from './components/basicos/FamiliaMenbro'
 import ListaAlunos from './components/repeticao/ListaAlunos'
 import Produtos from './components/repeticao/TabelaProdutos'
+import ParOuImpar from './components/condicional/ParOuImpar'
+import UsuarioInfo from './components/condicional/UsuarioInfo'
 
 const App = () => {
     return (
         <div className='Cards'>
+
+            <Card titulo='Renderização condicional'>
+                <ParOuImpar valor={3} />
+
+                <UsuarioInfo usuario={{nome:'Jose'}} />
+            </Card>
 
             <Card titulo='Repetição desafio' color='#ffc800'>
                 <Produtos />

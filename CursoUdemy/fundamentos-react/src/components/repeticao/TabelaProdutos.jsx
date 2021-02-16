@@ -2,11 +2,12 @@ import React from 'react'
 import produtos from '../../data/produtos'
 import './TabelaProdutos.css'
 
-const teste = produtos.map(p => {
+const listaProdutos = produtos.map(p => {
     return (
-        <tr>
+        <tr key={p.id}>
+            <td>{p.id}</td>
             <td>{p.nome}</td>
-            <td>{p.preco}</td>
+            <td>R$ {p.preco}</td>
         </tr>
     )
 })
@@ -15,11 +16,16 @@ const TabelaProdutos = () => {
     return (
         <div>
             <table>
-                <tr>
-                    <th>Nome</th>
-                    <th>Preço</th>
-                </tr>
-                {teste}
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {listaProdutos}
+                </tbody>
             </table>
         </div>
     )
