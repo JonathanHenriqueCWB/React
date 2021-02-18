@@ -14,10 +14,15 @@ import Produtos from './components/repeticao/TabelaProdutos'
 import ParOuImpar from './components/condicional/ParOuImpar'
 import UsuarioInfo from './components/condicional/UsuarioInfo'
 import DiretaPai from './components/comunicacao/DiretaPai'
+import IndiretaPai from './components/comunicacao/IndiretaPai'
 
 const App = () => {
     return (
         <div className='Cards'>
+
+            <Card titulo='Comunicação indireta' color='#8d7d3d'>
+                <IndiretaPai />
+            </Card>
 
             <Card titulo='Comunicação direta' color='#9c9c9c'>
                 <DiretaPai texto='Valor vindo do App component'/>
