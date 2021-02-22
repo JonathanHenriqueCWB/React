@@ -15,10 +15,14 @@ import ParOuImpar from './components/condicional/ParOuImpar'
 import UsuarioInfo from './components/condicional/UsuarioInfo'
 import DiretaPai from './components/comunicacao/DiretaPai'
 import IndiretaPai from './components/comunicacao/IndiretaPai'
+import Input from './components/formularios/Input'
 
 const App = () => {
     return (
         <div className='Cards'>
+            <Card titulo='Componente Controlado' color='#3d3d3d'>
+                <Input />
+            </Card>
 
             <Card titulo='Comunicação indireta' color='#8d7d3d'>
                 <IndiretaPai />
