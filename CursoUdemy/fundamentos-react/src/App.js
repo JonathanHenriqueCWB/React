@@ -16,10 +16,16 @@ import UsuarioInfo from './components/condicional/UsuarioInfo'
 import DiretaPai from './components/comunicacao/DiretaPai'
 import IndiretaPai from './components/comunicacao/IndiretaPai'
 import Input from './components/formularios/Input'
+import Contador from './components/contador/Contador'
 
 const App = () => {
     return (
         <div className='Cards'>
+
+            <Card titulo='Contador'>
+                <Contador numero={1000} passo={10}/>
+            </Card>
+
             <Card titulo='Componente Controlado' color='#3d3d3d'>
                 <Input />
             </Card>
@@ -29,13 +35,13 @@ const App = () => {
             </Card>
 
             <Card titulo='Comunicação direta' color='#9c9c9c'>
-                <DiretaPai texto='Valor vindo do App component'/>
+                <DiretaPai texto='Valor vindo do App component' />
             </Card>
 
             <Card titulo='Renderização condicional'>
                 <ParOuImpar valor={3} />
 
-                <UsuarioInfo usuario={{nome:'Jose'}} />
+                <UsuarioInfo usuario={{ nome: 'Jose' }} />
             </Card>
 
             <Card titulo='Repetição desafio' color='#ffc800'>
