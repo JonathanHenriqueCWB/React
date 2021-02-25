@@ -17,10 +17,15 @@ import DiretaPai from './components/comunicacao/DiretaPai'
 import IndiretaPai from './components/comunicacao/IndiretaPai'
 import Input from './components/formularios/Input'
 import Contador from './components/contador/Contador'
+import Mega from './components/contador/desafio/Mega'
 
 const App = () => {
     return (
         <div className='Cards'>
+
+            <Card titulo='Gerar numeros' color='#9c9c'>
+                <Mega />
+            </Card>
 
             <Card titulo='Contador'>
                 <Contador numero={1000} passo={10}/>
