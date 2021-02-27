@@ -6,10 +6,10 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <>
+    <div>
       <h1>Calculator</h1>
       <Calculator />
-    </>
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,20 +1,22 @@
+/* configurando a fonte do projeto */
 @font-face {
   font-family: "RobotoMono";
   src: url("./fonts/RobotoMono-Thin.ttf");
 }
 
 * {
-  font-family: "RobotoMono", nonospace;
+  font-family: "RobotoMono", monospace;
 }
 
 body {
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   height: 100vh;
   background: linear-gradient(to right, rgba(83, 105, 118), rgba(41, 46, 73));
   color: #fff;
-  
+  text-align: center;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
