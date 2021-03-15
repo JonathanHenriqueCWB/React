@@ -1,0 +1,7 @@
+.BlueCard {
+    background-color: #008b8b30;
+    padding: 10px;
+    border-left: 8px solid darkcyan;
+    box-shadow: 3px 3px 3px #00000090;
+    margin-bottom: 20px;
+}

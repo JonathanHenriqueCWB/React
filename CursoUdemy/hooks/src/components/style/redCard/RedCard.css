@@ -1,0 +1,6 @@
+.RedCard {
+    background-color: #ff000030;
+    padding: 10px;
+    border-left: 8px solid red;
+    box-shadow: 3px 3px 3px #00000090;
+}

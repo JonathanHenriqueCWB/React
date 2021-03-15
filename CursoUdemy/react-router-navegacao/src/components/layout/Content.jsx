@@ -5,11 +5,15 @@ import './Content.css'
 import About from '../../views/examples/About'
 import Home from '../../views/examples/Home'
 import Param from '../../views/examples/Parametros'
+import NotFound from '../../views/examples/NotFound'
 
 const Content = props => {
     return (
         <main className='Content'>
             <Switch>
+                <Route exact path='/'>
+                    <Home />
+                </Route>
                 {/** :id significa que receberá um parametro chamad id */}
                 <Route path='/param/:id'>
                     <Param />
@@ -17,8 +21,8 @@ const Content = props => {
                 <Route path='/about'>
                     <About />
                 </Route>
-                <Route path='/'>
-                    <Home />
+                <Route path='*'>
+                    <NotFound />
                 </Route>
             </Switch>
         </main>

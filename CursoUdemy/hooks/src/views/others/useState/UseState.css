@@ -1,0 +1,15 @@
+.Main {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+
+.Main button {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin: 10px;
+    border: 1px solid darkcyan;
+    outline: none;
+    background-color: #008b8b30;
+}
