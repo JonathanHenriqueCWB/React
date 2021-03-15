@@ -2,6 +2,8 @@
     display: flex;
     padding: 10px;
     align-items: center;
+    border-bottom: 1px solid #008b8b;
+    margin-bottom: 10px;
 }
 
 .Main button {
@@ -12,4 +14,14 @@
     border: 1px solid darkcyan;
     outline: none;
     background-color: #008b8b30;
+}
+
+.Main input {
+    border: 1px solid darkcyan;
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    width: 150px;
+    height: 10px;
+    outline: none;
 }
