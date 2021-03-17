@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import UseState from '../../views/others/useState/UseState'
 import UseEffect from '../../views/others/useEffect/UseEffect'
+import UseRef from '../../views/others/useRef/UseRef'
 
 import Erro from '../../views/others/notFound/NotFound'
 
@@ -13,9 +14,15 @@ const Content = () => (
             <Route exact path='/'>
                 <UseState />
             </Route>
+
             <Route path='/effect'>
                 <UseEffect />
             </Route>
+
+            <Route path='/ref'>
+                <UseRef />
+            </Route>
+
             <Route path='*'>
                 <Erro />
             </Route>

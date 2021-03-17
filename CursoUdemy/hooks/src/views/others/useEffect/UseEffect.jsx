@@ -14,7 +14,7 @@ const UseEffect = () => {
     //Function
     const alterar = e => setNumber(e.target.value)
     function calcularFatorial(num) {
-        const n  = parseInt(num)
+        const n = parseInt(num)
         if (n < 0) {
             return -1
         } else if (n === 0) {
@@ -23,11 +23,19 @@ const UseEffect = () => {
             return calcularFatorial(n - 1) * n
         }
     }
-    const verificarParImpar = valor => valor%2 == 0 ? 'Par' : 'Impar'
+    
+    const verificarParImpar = valor => {
+        if (valor % 2 === 0) {
+            return 'Par'
+        } else {
+            return 'Impar'
+        }
+    }
+
 
 
     // Effect
-    useEffect(function (){
+    useEffect(function () {
         setFatorial(calcularFatorial(number))
     }, [number])
 

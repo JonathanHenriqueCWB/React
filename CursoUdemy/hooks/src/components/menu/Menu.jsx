@@ -8,13 +8,16 @@ const Menu = () => (
             <ul>
                 <li><Link to="/">useState()</Link></li>
                 <li><Link to="/effect">useEffect()</Link></li>
-
-                <li><a href="/">useRef()</a></li>
-                <li><a href="/">useMono()</a></li>
-                <li><a href="/">useCallback()</a></li>
-                <li><a href="/">useContext()</a></li>
-                <li><a href="/">useReducer()</a></li>
-                <li><a href="/">useMyHook()</a></li>
+                <li><Link to="/ref">useRef()</Link></li>
+                {
+                    /*
+                        <li><a href="/">useMono()</a></li>
+                        <li><a href="/">useCallback()</a></li>
+                        <li><a href="/">useContext()</a></li>
+                        <li><a href="/">useReducer()</a></li>
+                        <li><a href="/">useMyHook()</a></li>
+                    */
+                }
             </ul>
         </nav>
     </header>
