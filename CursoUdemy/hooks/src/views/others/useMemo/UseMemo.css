@@ -1,0 +1,31 @@
+.Flex-container {
+    display: flex;
+    flex-direction: column;
+    
+    width: 30%;
+    margin: 0 auto;
+}
+
+.Flex-container input {
+    width: 90%;
+    padding: 10px;
+    height: 20px;
+    margin: 10px;
+    border: none;
+    font-size: 1.5em;
+    border: 1px solid darkcyan;
+    border-radius: 20px;
+    outline: none;
+}
+
+.Flex-container span {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px;
+}
+
+.Flex-container p {
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.3em;
+}
