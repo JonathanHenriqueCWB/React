@@ -1,0 +1,30 @@
+.UseCallback {
+    text-align: center;
+}
+
+.UseCallback .Btn {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.UseCallback button {
+    margin: 1px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #008b8b;
+    background-color: #008b8b30;
+    color: darkcyan;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+.Texto {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.Red {
+    color: red;
+}
