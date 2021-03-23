@@ -1,0 +1,10 @@
+.UseContext button {
+    width: 30px;
+    height: 30px;
+    font-size: 1.5em;
+    border-radius: 100%;
+    outline: none;
+    border: 1px solid darkcyan;
+    color: darkcyan;
+    margin: 5px;
+}

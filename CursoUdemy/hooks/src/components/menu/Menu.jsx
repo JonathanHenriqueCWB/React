@@ -11,10 +11,10 @@ const Menu = () => (
                 <li><Link to="/ref">useRef()</Link></li>
                 <li><Link to="/memo">useMemo()</Link></li>
                 <li><Link to="/back">useCallback()</Link></li>
+                <li><Link to="/context">useContext()</Link></li>
                 
                 {
                     /*
-                        <li><a href="/">useContext()</a></li>
                         <li><a href="/">useReducer()</a></li>
                         <li><a href="/">useMyHook()</a></li>
                     */

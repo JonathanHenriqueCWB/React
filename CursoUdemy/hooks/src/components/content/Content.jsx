@@ -7,6 +7,7 @@ import UseEffect from '../../views/others/useEffect/UseEffect'
 import UseRef from '../../views/others/useRef/UseRef'
 import UseMemo from '../../views/others/useMemo/UseMemo'
 import UseCallback from '../../views/others/useCallback/UseCallback'
+import UseContext from '../../views/others/useContext/UseContext'
 
 import Erro from '../../views/others/notFound/NotFound'
 
@@ -31,6 +32,10 @@ const Content = () => (
 
             <Route path='/back'>
                 <UseCallback />
+            </Route>
+
+            <Route path='/context' >
+                <UseContext />
             </Route>
 
             <Route path='*'>
