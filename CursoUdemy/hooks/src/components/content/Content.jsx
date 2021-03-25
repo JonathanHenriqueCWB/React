@@ -8,6 +8,7 @@ import UseRef from '../../views/others/useRef/UseRef'
 import UseMemo from '../../views/others/useMemo/UseMemo'
 import UseCallback from '../../views/others/useCallback/UseCallback'
 import UseContext from '../../views/others/useContext/UseContext'
+import UseReducer from '../../views/others/useReducer/useReducer'
 
 import Erro from '../../views/others/notFound/NotFound'
 
@@ -36,6 +37,10 @@ const Content = () => (
 
             <Route path='/context' >
                 <UseContext />
+            </Route>
+
+            <Route path='/reducer'>
+                <UseReducer />
             </Route>
 
             <Route path='*'>

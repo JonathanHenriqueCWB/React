@@ -12,6 +12,7 @@ const Menu = () => (
                 <li><Link to="/memo">useMemo()</Link></li>
                 <li><Link to="/back">useCallback()</Link></li>
                 <li><Link to="/context">useContext()</Link></li>
+                <li><Link to='/reducer'>useReducer()</Link></li>
                 
                 {
                     /*
