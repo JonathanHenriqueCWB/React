@@ -13,7 +13,7 @@ const App = () => {
 
     return (
         <Store>
-            <DataContext.Provider value={{ estado, setEstado }} >
+            <DataContext.Provider value={{estado, setEstado}} >
                 <main className='App'>
                     <Router>
                         <Menu />
@@ -27,11 +27,4 @@ const App = () => {
 
 export default App
 
-/**
- *  1 - Definir arquivo e pasta dos dados
- *  2 - Criar o datacontext dentro da pasta dados
- *  3 - Importar o contexto + nome do objeto no App ou Index com a propriedade
- *      value, para que todos child componente tenham acesso ao dataContext
- *  4 - Na classe filho declarar o hook useContex recebendo o valor do dataContext,
- *      não esquecer que o ParentComponent ten que ter a propriedade value!
- */
+// Componentes Store e DataContext e referente ao exercicio Context API

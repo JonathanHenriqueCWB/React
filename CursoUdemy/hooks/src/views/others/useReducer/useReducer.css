@@ -1,0 +1,18 @@
+.UseReducer {
+    text-align: center;
+}
+
+.UseReducer button {
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #008b8b50;
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+.UseReducer p {
+    color: darkcyan;
+}

@@ -5,14 +5,13 @@ import BlueCard from '../../../components/style/blueCard/BlueCard'
 
 const UseEffect = () => {
 
-
-    // State
     const [number, setNumber] = useState(1)
     const [fatorial, setFatorial] = useState(1)
     const [parImpar, setParImpar] = useState('impar')
 
     //Function
-    const alterar = e => setNumber(e.target.value)
+    const alterarValorInput = e => setNumber(e.target.value)
+
     function calcularFatorial(num) {
         const n = parseInt(num)
         if (n < 0) {
@@ -23,7 +22,7 @@ const UseEffect = () => {
             return calcularFatorial(n - 1) * n
         }
     }
-    
+
     const verificarParImpar = valor => {
         if (valor % 2 === 0) {
             return 'Par'
@@ -31,8 +30,6 @@ const UseEffect = () => {
             return 'Impar'
         }
     }
-
-
 
     // Effect
     useEffect(function () {
@@ -47,11 +44,23 @@ const UseEffect = () => {
         <section>
             <BlueCard>
                 <h2>UseEffect</h2>
-                <p>Permite executar efeitos colaterais em componentes funcionais</p>
+                <p>
+                    Permite executar efeitos colaterais em componentes funcionais
+                    com ações em outro componente. Por exemplo quando alterar um input
+                    outra ação pode ser chamada e executada em paralelo.
+                </p>
+                <p>
+                    Primeiro exercicio ira ser alterado um valor do input, como
+                    consequencia será disparado um efeito que calculará o Fatorial
+                    com o valor do próprio input
+                </p>
+                <p>
+                    Segundo exemplo como efeito ira apenas dizer se o numero e par ou impar
+                </p>
             </BlueCard>
             <h1>Exercicio #01</h1>
             <div className='UseEffect'>
-                <input type="number" value={number} onChange={alterar} />
+                <input type="number" value={number} onChange={alterarValorInput} />
                 <p>Valor: <strong>{number}</strong></p>
 
                 <span className="text">Fatorial:</span>

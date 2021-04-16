@@ -1,10 +1,27 @@
-.UseContext button {
-    width: 30px;
-    height: 30px;
-    font-size: 1.5em;
-    border-radius: 100%;
-    outline: none;
-    border: 1px solid darkcyan;
+.UseContext ol {
+    margin: 10px 50px;
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+.UseContext h2 {
+    margin-top: 20px;
+}
+
+.UseContext h1, h2 {
     color: darkcyan;
-    margin: 5px;
+}
+
+.UseContext p {
+    border: none;
+}
+
+.UseContext strong {
+    color: red;
+}
+
+.UseContext button {
+    width: 100px;
+    padding: 10px 20px;
+    margin: 10px 10px 0 0;
 }

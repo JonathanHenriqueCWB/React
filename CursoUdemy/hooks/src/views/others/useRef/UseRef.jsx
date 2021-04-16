@@ -3,25 +3,21 @@ import './UseRef.css'
 
 import BlueCard from '../../../components/style/blueCard/BlueCard'
 
-function merge(v1, v2) {    
-    return [...v1].map(function (element, indice){
+function merge(v1, v2) {
+    return [...v1].map(function (element, indice) {
         return `${element}${v2[indice] || ''}`
     }).join('')
 }
 
 const UseRef = () => {
-    
-    // State
+
     const [value1, setValue1] = useState('')
     const [value2, setValue2] = useState('')
 
-    // Ref
     const count = useRef(0)
     const input1 = useRef(null)
     const input2 = useRef(null)
 
-
-    // Effect
     useEffect(function () {
         count.current++
         input2.current.focus()
@@ -38,7 +34,6 @@ const UseRef = () => {
                 <h1>useRef</h1>
                 <p>Retrona um objeto mutável com a propriedade current!</p>
             </BlueCard>
-
             <div className='UseRef'>
                 <h1 className='Texto'>Exercicio #01</h1>
                 <div>
@@ -49,7 +44,6 @@ const UseRef = () => {
                 </div>
                 <input type="text" value={value1} onChange={e => setValue1(e.target.value)} ref={input1} />
             </div>
-
             <div className='UseRef'>
                 <h1 className='Texto'>Exercicio #02</h1>
                 <div>
@@ -60,7 +54,6 @@ const UseRef = () => {
                 </div>
                 <input type="text" value={value2} onChange={e => setValue2(e.target.value)} ref={input2} />
             </div>
-
             <div className='UseRef'>
                 <h1 className='Texto'>Resultado do exercicio</h1>
                 <span className="Texto">Resultado: {merge(value1, value2)}</span>

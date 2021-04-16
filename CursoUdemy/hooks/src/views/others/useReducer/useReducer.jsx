@@ -1,47 +1,26 @@
 import React, { useReducer } from 'react'
+import './useReducer.css'
+
 import BlueCard from '../../../components/style/blueCard/BlueCard'
-
-const initialState = {
-    number: 0,
-    cart: [],
-    products: [],
-    user: null,
-}
-
-function reducer(state, action) {
-
-    switch (action.type) {
-        case 'addToNumber':
-            return { ...state, number: state.number + 2 }
-        case 'login':
-            return { ...state, user: { name: action.name } }
-        default:
-            return state
-    }
-
-}
+// Importa o initialStae, o initialState carregara tbm o reducer
+import { initialState, reducer } from '../../../store/index'
+// Importa as actions receberão
+import { number, user } from '../../../store/actions/index'
 
 const UseReducer = () => {
-
     const [state, dispatch] = useReducer(reducer, initialState)
-
     return (
         <div>
             <BlueCard>
                 <h1>Hook - useReducer</h1>
             </BlueCard>
 
-            <div>
-                <div>
-                    {
-                        state.user ? <span>{state.user.name}</span> : <span>Anonimo</span>
-                    }
-                </div>
-                <span>{state.number}</span>
-                <div>
-                    <button onClick={() => dispatch({type: 'login', name: 'Yosh'})}>Login</button>
-                    <button onClick={() => dispatch({ type: 'addToNumber' })}>+2</button>
-                </div>
+            <div className='UseReducer'>
+                <p>{state.user ? <span>{state.user.name}</span> : <span>Anonimo</span>}</p>
+                <button onClick={() => user(dispatch, 'Super Mario')}>Login</button>
+
+                <p>{state.number}</p>
+                <button onClick={() => number(dispatch)}>Contador</button>
             </div>
         </div>
     )
@@ -49,7 +28,4 @@ const UseReducer = () => {
 
 export default UseReducer
 
-/**
- *  Reducer recebe a ultima condição atual do estado
- *  e um action
- */
+// button > Function/Actions(dispatch, args) > reducer/dispatch(obejeto) > estado atualizado
